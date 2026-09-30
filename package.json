@@ -1,0 +1,27 @@
+{
+  "name": "loyalty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/gesslar/loyalty.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/gesslar/loyalty#readme",
+  "dependencies": {
+    "@gesslar/lpml": "^1.0.0",
+    "@gesslar/toolkit": "^5.9.1",
+    "axios": "^0.27.2"
+  },
+  "devDependencies": {
+    "@gesslar/uglier": "^2.4.1",
+    "eslint": "^10.11.0"
+  }
+}
