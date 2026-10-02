@@ -2,6 +2,15 @@ import axios from "axios"
 import {decode} from '@gesslar/lpml'
 import {FileObject} from "@gesslar/toolkit"
 
+process.loadEnvFile(new URL(".env", import.meta.url))
+
+const webhook     = process.env.WEBHOOK_URL
+
+if(!webhook) {
+  console.error("WEBHOOK_URL is not set in .env")
+  process.exit(1)
+}
+
 const fileName    = "/frogdice/thresh/lib/etc/loyalty/loyalty.lpml"
 const file        = new FileObject(fileName)
 const contents    = await file.read();
@@ -10,8 +19,6 @@ const date        = new Date()
 const today       = date.getDate() - 1
 const fromCalendar= jsonContent.reward_calendar[today]
 const reward      = jsonContent.rewards[fromCalendar]
-const _testhook    = "https://discord.com/api/webhooks/1554658222848217131/rltXBmkhfdEBtJq1xNUbDtDmn9y9_bAmHNRXD0uCBdi4bcHAcZsI_R2rId9DMa5gwEux"
-const webhook     = "https://discordapp.com/api/webhooks/619540296115552266/M76BASJgLf8CR1L4EeUw2QrqlwRnUlFvjSZWpGQJcQECDKj5TVjdd2Hsxv8EDKrL4J90"
 const payload     = {
   content: `:trophy: Today's Loyalty Reward is __**${reward.name}**__. Grab it now!`
   }
